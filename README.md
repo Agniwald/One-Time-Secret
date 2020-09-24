@@ -12,7 +12,8 @@ All secrets are stored in a MongoDB database encrypted with AES 256 algorithm an
 ### POST secret
 Request:
 
-```curl -H "Content-Type: application/json"  \
+```
+curl -H "Content-Type: application/json"  \
   --request POST \
   --data '{"secret": "Some text to hide!", "key": "super_secret_pswd"}' \
   https://onetimesecret.herokuapp.com/generate```
