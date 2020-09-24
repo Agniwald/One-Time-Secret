@@ -38,8 +38,8 @@ def secrets(secret_url):
 
 	Then, delete secret from the database
 	"""
-
-	if s := database.find_one({"url": secret_url}):
+	s = database.find_one({"url": secret_url})
+	if s:
 		key = request.args.get('key')
 		decrypted_s = crypt.decrypt(s, key)
 		database.delete_one(s)
