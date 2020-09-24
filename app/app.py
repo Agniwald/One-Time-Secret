@@ -27,7 +27,7 @@ def generate():
 		return crypted_secret['url']
 	except Exception as e:
 		print(e)
-		return 'Something went wrong with database', 500
+		return 'Something went wrong with the database', 500
 
 
 @app.route('/secrets/<string:secret_url>')
@@ -41,7 +41,12 @@ def secrets(secret_url):
 	s = database.find_one({"url": secret_url})
 	if s:
 		key = request.args.get('key')
-		decrypted_s = crypt.decrypt(s, key)
+
+		try:
+			decrypted_s = crypt.decrypt(s, key)
+		except ValueError:
+			return 'Wrong password!'
+
 		database.delete_one(s)
 
 		return decrypted_s
