@@ -1,6 +1,6 @@
 # One-Time-Secret
 
-### This is JSON API analog of https://onetimesecret.com written on Python with Flask and Gunicorn
+### This is JSON API analog of https://onetimesecret.com developed with Python, Flask and Gunicorn
 
 
 - Method ```/generate``` gets secret and password as POST JSON data and returns generated id.
